@@ -1,26 +1,3 @@
-# [favor-group.ru](https://favor-group.ru) infrastructure as a code
-
-This repository contains infrastructure code behind Bitrix-based [favor-group.ru](https://favor-group.ru), a site
-of my father's metal decking business operating in Moscow, Sankt-Petersburg and Tula.
-
-It's a Bitrix website completely enclosed within docker-compose to be as portable and maintainable
-as possible, and a set of scripts around its maintenance like dev site redeploy or production site backup.
-
-## How to make use of it
-
-You couldn't use it as-is without alterations. However, I tried to make everything as generic
-as possible to make adoption for another project easy. To use it, read trough [docker-compose.yml](docker-compose.yml)
-and then read the rest of this Readme.
-
-After you make adjustments to configuration and docker-compose.yml, run it as follows:
-
-```bash
-docker-compose up --build -d
-```
-
-[bitrixdock](https://github.com/bitrixdock/bitrixdock) (Russian) project was an inspiration for this
-one and had way better setup instructions. Please start with it if you don't know what to do with
-many files in that repo.
 
 ### File system permissions
 
@@ -229,11 +206,9 @@ To renew the certificate manually, run the following command and follow the inte
 ```shell
 docker-compose run --rm --entrypoint "\
   certbot certonly \
-    --email msk@favor-group.ru \
-    -d favor-group.ru -d *.favor-group.ru \
+    --email mail@example.com \
+    -d example.com -d *.example.com \
     --agree-tos \
     --manual \
     --preferred-challenges dns" certbot
 ```
-
-To add required TXT entries, head to DNS entries page, [Yandex](https://connect.yandex.ru/portal/services/webmaster/resources/favor-group.ru) in that example.

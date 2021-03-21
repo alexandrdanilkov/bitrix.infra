@@ -1,7 +1,4 @@
 version: '2'
-
-# Yandex.Cloud external IP with DDoS Protection enabled has a requirement of MTU of 1450
-# according to https://github.com/moby/moby/issues/22297#issuecomment-242934050 that's the only way to set it inside docker-compose
 networks:
   default:
     driver: bridge
